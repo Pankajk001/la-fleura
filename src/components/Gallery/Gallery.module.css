@@ -1,0 +1,101 @@
+.section {
+  padding: 8rem 5%;
+  background-color: var(--cream);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+
+.titleWrapper {
+  max-width: 500px;
+}
+
+.title {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--deep-rose);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.igLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--dark);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.igLink:hover {
+  color: var(--deep-rose);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.imageCard {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 20, 16, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.imageCard:hover .image {
+  transform: scale(1.05);
+}
+
+.imageCard:hover .overlay {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}

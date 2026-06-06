@@ -1,0 +1,160 @@
+.story {
+  position: relative;
+  background-color: var(--cream);
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 75vh;
+  background: linear-gradient(to right, var(--cream) 35%, var(--champagne) 65%);
+}
+
+.visualSide {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualSide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 100px 60px var(--cream);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 120%;
+  position: absolute;
+  top: -10%;
+  left: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floatingTag {
+  position: absolute;
+  bottom: 4rem;
+  right: -2rem;
+  background: rgba(251, 247, 244, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 2rem;
+  border-left: 2px solid var(--rose);
+  max-width: 320px;
+  z-index: 10;
+  box-shadow: 0 20px 40px rgba(28, 20, 16, 0.1);
+}
+
+.tagText {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--deep-rose);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.tagAttr {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contentSide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 6rem;
+  background-color: transparent;
+}
+
+.contentInner {
+  max-width: 500px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.line {
+  width: 40px;
+  height: 1px;
+  background: var(--rose);
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1.1;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--deep-rose);
+}
+
+.paragraph {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+}
+
+.signature {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--deep-rose);
+  margin-top: 2rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+  .floatingTag {
+    right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .visualSide {
+    min-height: 60vh;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    background: linear-gradient(to bottom, var(--cream) 30%, var(--champagne) 70%);
+  }
+  
+  .floatingTag {
+    bottom: 2rem;
+    right: auto;
+    left: 2rem;
+  }
+  
+  .contentSide {
+    padding: 4rem 2rem;
+  }
+}

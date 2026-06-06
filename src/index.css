@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+:root {
+  --blush: #F2E0DC;
+  --deep-rose: #8B3A52;
+  --rose: #C4607A;
+  --champagne: #F7F0E8;
+  --cream: #FBF7F4;
+  --dark: #1C1410;
+  --muted: #8A7570;
+  --border: rgba(139,58,82,0.15);
+  
+  /* Glassmorphism Tokens */
+  --glass-bg: rgba(251,247,244,0.7);
+  --glass-dark: rgba(28,20,16,0.8);
+  --glass-border: rgba(255,255,255,0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(139, 58, 82, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: 'Jost', sans-serif;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Reusable Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-panel-dark {
+  background: var(--glass-dark);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--cream);
+}

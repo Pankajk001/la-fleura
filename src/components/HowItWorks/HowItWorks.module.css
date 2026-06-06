@@ -1,0 +1,135 @@
+.section {
+  padding: 8rem 5%;
+  background-color: var(--champagne);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.line {
+  width: 30px;
+  height: 1px;
+  background: var(--rose);
+}
+
+.title {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.1;
+  color: var(--dark);
+}
+
+.title em {
+  font-style: italic;
+  color: var(--deep-rose);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  position: relative;
+}
+
+.card {
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+  z-index: 2;
+  background: #5C2C35; /* Mahogany */
+  border-radius: 30px;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(139, 58, 82, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(92, 44, 53, 0.4);
+  background: #6D3442; /* Lighter Mahogany */
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.iconWrapper {
+  width: 70px;
+  height: 70px;
+  background: rgba(251, 247, 244, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  color: var(--cream);
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(251, 247, 244, 0.1);
+}
+
+.watermark {
+  position: absolute;
+  top: -2rem;
+  right: -1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12rem;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(251, 247, 244, 0.04);
+  z-index: 0;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--cream);
+}
+
+.cardDesc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(251, 247, 244, 0.8);
+  font-weight: 300;
+}
+
+
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .card {
+    padding: 3rem 2rem;
+  }
+}

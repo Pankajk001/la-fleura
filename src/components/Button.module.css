@@ -1,0 +1,53 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.2rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary {
+  background: var(--deep-rose);
+  color: var(--cream);
+  box-shadow: 0 4px 14px rgba(139, 58, 82, 0.2);
+}
+
+.primary:hover {
+  background: var(--rose);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 58, 82, 0.3);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--deep-rose);
+  border: 1px solid var(--deep-rose);
+}
+
+.secondary:hover {
+  background: rgba(139, 58, 82, 0.05);
+  transform: translateY(-2px);
+}
+
+.whatsapp {
+  background: var(--deep-rose);
+  color: var(--cream);
+  gap: 0.6rem;
+  box-shadow: 0 4px 14px rgba(139, 58, 82, 0.2);
+}
+
+.whatsapp:hover {
+  background: var(--rose);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 58, 82, 0.3);
+}
