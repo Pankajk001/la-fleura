@@ -110,7 +110,7 @@ const Pricing = ({ openWizard }) => {
                 variant={plan.recommended ? 'primary' : 'secondary'} 
                 className={styles.selectBtn}
                 style={plan.recommended ? { background: 'var(--blush)', color: 'var(--dark)' } : {}}
-                onClick={() => window.open('https://wa.me/919876543210', '_blank')}
+                onClick={() => window.open('https://wa.me/919654537655', '_blank')}
               >
                 INQUIRE VIA WHATSAPP
               </Button>

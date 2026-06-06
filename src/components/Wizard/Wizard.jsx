@@ -25,7 +25,7 @@ const Wizard = ({ isOpen, onClose }) => {
   });
 
   const generateWhatsAppLink = () => {
-    const phone = '919876543210'; // Placeholder for Nisha's number
+    const phone = '919654537655'; // Nisha's WhatsApp number
     const msg = `Hi Nisha! I'd like to subscribe to La Fleura.%0A%0A*Plan:* ${selections.plan}%0A*Vibe:* ${selections.vibe}%0A*Gift Note:* ${selections.note || 'None'}`;
     return `https://wa.me/${phone}?text=${msg}`;
   };
