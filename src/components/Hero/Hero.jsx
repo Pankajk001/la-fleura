@@ -58,7 +58,9 @@ const Hero = ({ openWizard }) => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className={styles.actions}
         >
-          <Button variant="primary" onClick={openWizard}>Build Your Plan</Button>
+          <a href="#subscriptions" style={{ textDecoration: 'none' }}>
+            <Button variant="primary">View Subscriptions</Button>
+          </a>
           <a href="https://wa.me/919654537655" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
             <Button variant="whatsapp">
               <MessageCircle size={16} /> WhatsApp Us
