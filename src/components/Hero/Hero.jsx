@@ -5,16 +5,16 @@ import { motion } from 'framer-motion';
 import Button from '../Button';
 import styles from './Hero.module.css';
 import { MessageCircle } from 'lucide-react';
-import whitePeoniesImg from '../../assets/slide images/WHITE_PEONIES-removebg-preview.png';
+import whitePeoniesImg from '../../assets/Slide images/WHITE_PEONIES-removebg-preview.png';
 import slideBanner1 from '../../assets/Slide Banner/Banner-1.png';
 import slideBanner2 from '../../assets/Slide Banner/Banner-2.png';
 import bannerMain from '../../assets/Slide Banner/Banner-Main.png';
-import dryFlowersImg from '../../assets/slide images/slide image - 2.png';
+import dryFlowersImg from '../../assets/Slide images/slide image - 2.png';
 import slideBanner4 from '../../assets/Slide Banner/Banner-4.png';
-import flower3_1 from '../../assets/slide images/slide image - 3.1.png';
-import flower3_2 from '../../assets/slide images/slide image - 3.2.png';
-import flower3_3 from '../../assets/slide images/slide image - 3.3.png';
-import flower3_4 from '../../assets/slide images/slide image - 3.4.png';
+import flower3_1 from '../../assets/Slide images/slide image - 3.1.png';
+import flower3_2 from '../../assets/Slide images/slide image - 3.2.png';
+import flower3_3 from '../../assets/Slide images/slide image - 3.3.png';
+import flower3_4 from '../../assets/Slide images/slide image - 3.4.png';
 
 const Hero = ({ openWizard }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000, stopOnInteraction: false })]);
