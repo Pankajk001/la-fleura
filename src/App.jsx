@@ -9,6 +9,7 @@ import Contact from './components/Contact/Contact';
 import Wizard from './components/Wizard/Wizard';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
+import Collections from './components/Collections/Collections';
 import './index.css';
 
 function App() {
@@ -18,12 +19,13 @@ function App() {
     <div className="app-container">
       <Header />
       <Hero openWizard={() => setIsWizardOpen(true)} />
+      <Collections />
       <HowItWorks />
-      <Story />
       <Pricing openWizard={() => setIsWizardOpen(true)} />
       <Impact />
       <FAQ />
       <Contact />
+      <Story />
       <Footer />
       
       <Wizard isOpen={isWizardOpen} onClose={() => setIsWizardOpen(false)} />

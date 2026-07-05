@@ -1,38 +1,95 @@
-.hero {
+.heroWrapper {
   position: relative;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 5% 40px; /* Adjusted top padding for header space */
+  background-color: var(--cream);
+  gap: 1.5rem;
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(139, 58, 82, 0.05);
+  background: var(--champagne);
+}
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  position: relative;
+}
+
+.slideContent {
+  height: 380px;
   display: flex;
   align-items: center;
-  padding: 0 5%;
-  overflow: hidden;
-  background-color: var(--cream);
+  padding: 0 6%;
+  background-size: cover;
+  background-position: center;
 }
 
-.background {
-  position: absolute;
-  top: -10%;
-  right: 0;
-  left: auto;
-  width: 65%;
-  height: 120%;
-  z-index: 0;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 5%, rgba(0,0,0,0.5) 15%, black 25%);
-  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.05) 5%, rgba(0,0,0,0.5) 15%, black 25%);
+/* Theme styling for the first slide */
+.slideTheme {
+  background-color: var(--champagne);
+  background-image: radial-gradient(circle at 80% 50%, rgba(196, 96, 122, 0.06) 0%, transparent 60%);
 }
 
-.bgImage {
+.slideThemeLayout {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.slideThemeText {
+  flex: 1;
+  max-width: 500px;
+}
+
+.slideThemeImage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageLogo {
+  max-width: 250px;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.slideImage {
+  max-width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
+  transform: translateX(40px);
 }
 
 .content {
   position: relative;
   z-index: 10;
-  width: 50%;
-  max-width: 600px;
-  padding-top: 80px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .eyebrow {
@@ -40,24 +97,24 @@
   align-items: center;
   gap: 1rem;
   font-size: 0.75rem;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--rose);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
   font-weight: 500;
 }
 
 .line {
-  width: 40px;
+  width: 30px;
   height: 1px;
   background: var(--rose);
 }
 
 .title {
-  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
   line-height: 1.1;
   color: var(--dark);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
 
@@ -67,77 +124,97 @@
 }
 
 .subtitle {
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--muted);
-  max-width: 480px;
-  margin-bottom: 3rem;
+  max-width: 420px;
+  margin-bottom: 1.5rem;
   font-weight: 300;
 }
 
 .actions {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
-.icon {
-  margin-left: 0.5rem;
+/* Placeholder styling for other slides */
+.slidePlaceholder {
+  background-color: var(--blush);
+  justify-content: flex-start;
+  text-align: left;
 }
 
-.badgeWrapper {
-  position: absolute;
-  right: 2%;
-  bottom: 10%;
-  z-index: 20;
-}
-
-.floatingBadge {
-  background: rgba(251, 247, 244, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 1.8rem 2rem;
-  border-left: 3px solid var(--rose);
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-}
-
-.badgeLine {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  font-style: italic;
+.placeholderContent {
   color: var(--dark);
-  line-height: 1.3;
+  max-width: 500px;
 }
 
-@media (max-width: 1024px) {
-  .background {
-    width: 100%;
-    left: 0;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
-    mask-image: linear-gradient(to bottom, transparent 0%, black 20%);
-  }
-  .content {
-    width: 100%;
-  }
+.placeholderContent h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  margin-bottom: 0.8rem;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--deep-rose);
+  line-height: 1.1;
+}
+
+.placeholderContent p {
+  font-size: 1rem;
+  font-family: 'Jost', sans-serif;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Pagination Dots */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 20;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--rose);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dotSelected {
+  background: var(--rose);
+  transform: scale(1.2);
 }
 
 @media (max-width: 768px) {
-  .background {
-    top: 0;
-    height: 60vh;
-    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  .heroWrapper {
+    padding-top: 80px;
   }
   
-  .content {
-    padding-top: 50vh;
-    margin: 0 auto;
+  .slideContent {
+    height: 320px;
+    padding: 0 6%;
     text-align: center;
-    padding-bottom: 4rem;
+    justify-content: center;
+  }
+  
+  .slideThemeLayout {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  
+  .imageLogo {
+    max-height: 80px;
+  }
+  
+  .content, .placeholderContent {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .eyebrow {
@@ -147,8 +224,32 @@
   .actions {
     justify-content: center;
   }
-  
-  .badgeWrapper {
-    display: none; /* Hide on small mobile to save space */
-  }
 }
+
+/* Collage grid for Slide 4 */
+.collageContainer {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  margin-left: auto;
+  transform: translateX(40px);
+}
+
+.collageImage {
+  position: absolute;
+  width: 220px;
+  height: 280px;
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  mix-blend-mode: multiply;
+}
+
+.collageImage:hover {
+  transform: scale(1.15) rotate(0deg) !important;
+  z-index: 10 !important;
+}
+
+.collage1 { top: 5%; left: 0; transform: rotate(-12deg); z-index: 1; }
+.collage2 { top: 0; right: 5%; transform: rotate(8deg); z-index: 2; }
+.collage3 { bottom: 0; left: 10%; transform: rotate(15deg); z-index: 3; }
+.collage4 { bottom: 10%; right: 0; transform: rotate(-6deg); z-index: 4; }

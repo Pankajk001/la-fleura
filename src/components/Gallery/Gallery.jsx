@@ -35,7 +35,7 @@ const Gallery = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             className={styles.titleWrapper}
           >
             <h2 className={styles.title}>The <em>Gallery</em></h2>
@@ -47,7 +47,7 @@ const Gallery = () => {
             className={styles.igLink}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <InstagramIcon size={18} /> @lafleura
           </motion.a>
@@ -59,7 +59,7 @@ const Gallery = () => {
               key={index}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: false, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               className={styles.imageCard}
             >
