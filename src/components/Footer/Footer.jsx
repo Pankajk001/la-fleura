@@ -33,7 +33,8 @@ const Footer = () => {
       
       <div className={styles.bottomBar}>
         <p>&copy; {new Date().getFullYear()} La Fleura — All rights reserved</p>
-        <p>Made with love by Nisha 🌸</p>
+        <p className={styles.disclaimer}>* Prices are indicative and subject to seasonal availability</p>
+        <p>Made with love by Pankaj 🌸</p>
       </div>
     </footer>
   );

@@ -68,6 +68,14 @@
   font-size: 0.7rem;
   color: rgba(251, 247, 244, 0.5);
   font-weight: 300;
+  align-items: center;
+}
+
+.disclaimer {
+  color: rgba(251, 247, 244, 0.4);
+  font-style: italic;
+  font-size: 0.65rem;
+  text-align: center;
 }
 
 @media (max-width: 900px) {
