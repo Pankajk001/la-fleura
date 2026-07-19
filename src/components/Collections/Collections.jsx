@@ -1,62 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Button from '../Button';
 import styles from './Collections.module.css';
-
-// Dynamically import all images from the folders
-const luxeImagesRaw = import.meta.glob('../../assets/LUXE Bouquet SECTION/*.{png,jpg,jpeg,svg}', { eager: true, import: 'default' });
-const dryImagesRaw = import.meta.glob('../../assets/DRY FLOWER/*.{png,jpg,jpeg,svg}', { eager: true, import: 'default' });
-const catalogImagesRaw = import.meta.glob('../../assets/DIFFERENT FLOWERS CATALOG/*.{png,jpg,jpeg,svg}', { eager: true, import: 'default' });
-const moodsImagesRaw = import.meta.glob('../../assets/Bouquet for moods/*.{png,jpg,jpeg,svg}', { eager: true, import: 'default' });
-
-// Helper to format filename into a readable product name
-const formatName = (path) => {
-  const filename = path.split('/').pop().split('.')[0];
-  return filename
-    .replace(/[-_]/g, ' ') // Replace dashes and underscores with spaces
-    .replace(/\(.*?\)/g, '') // Remove parentheses and their contents like (1)
-    .replace(/Rs \d+-\d+ per bunch/i, '') // Remove price strings if present
-    .trim();
-};
-
-const formatImages = (imagesRaw) => {
-  return Object.keys(imagesRaw).map((path) => ({
-    src: imagesRaw[path],
-    name: formatName(path),
-  }));
-};
-
-const luxeImages = formatImages(luxeImagesRaw);
-const dryImages = formatImages(dryImagesRaw);
-const catalogImages = formatImages(catalogImagesRaw);
-const moodsImages = formatImages(moodsImagesRaw);
-
-const collections = [
-  {
-    id: 'bouquet-for-moods',
-    title: 'Bouquet for every moods',
-    subtitle: 'Flowers for Every Feeling',
-    images: moodsImages,
-  },
-  {
-    id: 'luxe-bouquet',
-    title: 'LUXE Bouquet',
-    subtitle: 'Premium Selection',
-    images: luxeImages,
-  },
-  {
-    id: 'dry-flowers',
-    title: 'Dry Flowers',
-    subtitle: 'Timeless Elegance',
-    images: dryImages,
-  },
-  {
-    id: 'flower-catalogue',
-    title: 'Flower Catalogue',
-    subtitle: 'The Spring Collection',
-    images: catalogImages,
-  }
-];
+import { collections } from '../../data/products';
 
 const Collections = () => {
   const [expandedSections, setExpandedSections] = useState({});
@@ -72,12 +19,9 @@ const Collections = () => {
     <section className={styles.collectionsSection}>
       <div className={styles.container}>
         {collections.map((item) => {
-          // Determine how many items to show initially
-          // Calculate max items based on full rows of 5, but cap it at 10 (2 rows) max
-          const fullRowsItems = Math.floor(item.images.length / 5) * 5;
-          let maxInitialItems = Math.min(fullRowsItems, 10);
+          const fullRowsItems = Math.floor(item.images.length / 4) * 4;
+          let maxInitialItems = Math.min(fullRowsItems, 8);
           
-          // If there are less than 5 images total, just show them all so the section isn't empty
           if (maxInitialItems === 0) {
             maxInitialItems = item.images.length;
           }
@@ -106,14 +50,7 @@ const Collections = () => {
 
               <div className={styles.productGrid}>
                 {displayImages.map((img, idx) => (
-                  <div key={idx} className={styles.productCard}>
-                    <div className={styles.imageWrapper}>
-                      <img src={img.src} alt={img.name} className={styles.productImage} />
-                    </div>
-                    <div className={styles.productInfo}>
-                      <h3 className={styles.productName}>{img.name}</h3>
-                    </div>
-                  </div>
+                  <ProductCard key={idx} img={img} />
                 ))}
               </div>
 
@@ -129,6 +66,32 @@ const Collections = () => {
         })}
       </div>
     </section>
+  );
+};
+
+const ProductCard = ({ img }) => {
+  const hasLongDescription = img.description && img.description.length > 80;
+
+  return (
+    <Link to={`/product/${img.id}`} className={styles.productCard}>
+      <div className={styles.imageWrapper}>
+        <img src={img.src} alt={img.name} className={styles.productImage} />
+      </div>
+      <div className={styles.productInfo}>
+        <h3 className={styles.productName}>{img.name}</h3>
+        <p className={styles.productDescription}>
+          {hasLongDescription ? `${img.description.slice(0, 80)}...` : img.description}
+        </p>
+        <div className={styles.cardFooter}>
+          <div className={styles.productPrice}>₹ {img.priceDisplay || img.price.toLocaleString('en-IN')}</div>
+          {hasLongDescription && (
+            <span className={styles.readMoreBtn}>
+              Read more
+            </span>
+          )}
+        </div>
+      </div>
+    </Link>
   );
 };
 

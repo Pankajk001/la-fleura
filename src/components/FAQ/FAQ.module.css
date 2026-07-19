@@ -1,7 +1,7 @@
 .section {
   padding: 8rem 5%;
-  background-color: var(--dark);
-  color: var(--cream);
+  background-color: var(--cream);
+  color: var(--dark);
   position: relative;
 }
 
@@ -39,7 +39,7 @@
 .title {
   font-size: clamp(2.5rem, 4vw, 4rem);
   line-height: 1.1;
-  color: var(--cream);
+  color: var(--dark);
 }
 
 .title em {
@@ -50,6 +50,8 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background-color: var(--dark);
+  color: var(--cream);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
 }

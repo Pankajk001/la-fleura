@@ -50,7 +50,7 @@ const Hero = ({ openWizard }) => {
             <div className={styles.embla__slide}>
               <div className={`${styles.slideContent} ${styles.slideTheme}`} style={{ backgroundImage: `url(${bannerMain})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
                   <div className={styles.slideThemeLayout}>
-                    <div className={styles.slideThemeText}>
+                    <div className={`${styles.slideThemeText} ${styles.firstSlideText}`}>
                       <div className={styles.eyebrow}>
                         <span className={styles.line}></span>
                         La Fleura Exclusives
@@ -66,7 +66,7 @@ const Hero = ({ openWizard }) => {
                       </p>
                       
                       <div className={styles.actions}>
-                        <a href="#subscriptions" style={{ textDecoration: 'none' }}>
+                        <a href="#subscriptions" className={styles.hideOnMobile} style={{ textDecoration: 'none' }}>
                           <Button variant="primary">View Subscriptions</Button>
                         </a>
                         <a href="https://wa.me/919654537655" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
@@ -95,7 +95,7 @@ const Hero = ({ openWizard }) => {
                           <span className={styles.line} style={{ background: 'var(--dark)' }}></span>
                           Exquisite Craftsmanship
                         </div>
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 3.5vw, 3.2rem)', marginBottom: '1rem', fontFamily: "'Cormorant Garamond', serif", color: 'var(--dark)', lineHeight: '1.1' }}>LUXE Bouquet</h2>
+                        <h2 className={styles.title} style={{ fontFamily: "'Cormorant Garamond', serif" }}>LUXE Bouquet</h2>
                         <p className={styles.subtitle} style={{ color: 'rgba(28, 20, 16, 0.8)' }}>
                           Elevate your space with our premium selection of hand-tied luxury roses and exotic lilies. Crafted for moments that matter.
                         </p>
@@ -127,7 +127,7 @@ const Hero = ({ openWizard }) => {
                           <span className={styles.line} style={{ background: 'var(--dark)' }}></span>
                           Rustic & Enduring
                         </div>
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 3.5vw, 3.2rem)', marginBottom: '1rem', fontFamily: "'Cormorant Garamond', serif", color: 'var(--dark)', lineHeight: '1.1' }}>Dry Flowers</h2>
+                        <h2 className={styles.title} style={{ fontFamily: "'Cormorant Garamond', serif" }}>Dry Flowers</h2>
                         <p className={styles.subtitle} style={{ color: 'rgba(28, 20, 16, 0.8)' }}>
                           Discover our artisanal collection of dried florals. Earthy, enduring, and effortlessly beautiful for any aesthetic.
                         </p>
@@ -159,7 +159,7 @@ const Hero = ({ openWizard }) => {
                           <span className={styles.line} style={{ background: 'var(--dark)' }}></span>
                           The Spring Catalogue
                         </div>
-                        <h2 style={{ fontSize: 'clamp(2.5rem, 3.5vw, 3.2rem)', marginBottom: '1rem', fontFamily: "'Cormorant Garamond', serif", color: 'var(--dark)', lineHeight: '1.1' }}>Seasonal Blooms</h2>
+                        <h2 className={styles.title} style={{ fontFamily: "'Cormorant Garamond', serif" }}>Seasonal Blooms</h2>
                         <p className={styles.subtitle} style={{ color: 'rgba(28, 20, 16, 0.8)' }}>
                           Browse our complete seasonal collection. From vibrant tulips to classic peonies, find the perfect bloom for every occasion.
                         </p>

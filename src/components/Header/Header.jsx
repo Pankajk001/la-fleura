@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingBag } from 'lucide-react';
+
 import Button from '../Button';
 import styles from './Header.module.css';
+import { useCart } from '../../context/CartContext';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { cartCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,27 +21,32 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Our Story', href: '#story' },
-    { name: 'Subscriptions', href: '#subscriptions' },
-    { name: 'Give Back', href: '#impact' },
-    { name: 'Inquire', href: '#contact' }
+    { name: 'Subscriptions', href: '/#subscriptions' },
+    { name: 'FAQ', href: '/faq', isRoute: true },
+    { name: 'Inquire', href: '/inquire', isRoute: true },
+    { name: 'Our Story', href: '/our-story', isRoute: true }
   ];
 
   return (
     <>
       <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
         <div className={styles.container}>
-          <a href="#" className={styles.logo}>La Fleura</a>
+          <Link to="/" className={styles.logo}>La Fleura</Link>
           
           <nav className={styles.desktopNav}>
             {navLinks.map((link, index) => (
-              <a key={index} href={link.href} className={styles.navLink}>
+              <Link key={index} to={link.href} className={styles.navLink}>
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
           
           <div className={styles.actions}>
+            <Link to="/cart" className={styles.cartIconWrapper} title="Cart" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <ShoppingBag size={24} />
+              {cartCount > 0 && <span className={styles.cartBadge}>{cartCount}</span>}
+            </Link>
+
             <div className={styles.desktopOnly}>
               <a href="https://wa.me/919654537655" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <Button variant="whatsapp" style={{ padding: '0.6rem 1.4rem', fontSize: '0.65rem' }}>
@@ -74,17 +83,20 @@ const Header = () => {
             
             <nav className={styles.mobileNavLinks}>
               {navLinks.map((link, index) => (
-                <motion.a 
+                <motion.div
                   key={index}
-                  href={link.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
-                  className={styles.mobileNavLink}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {link.name}
-                </motion.a>
+                  <Link 
+                    to={link.href}
+                    className={styles.mobileNavLink}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
